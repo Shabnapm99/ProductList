@@ -12,11 +12,19 @@ export default function FilterDiv() {
                 </div>
 
                 <div className='lg:px-5 px-1 py-3 text-[8px] md:[10px] lg:text-[12px] font-medium flex flex-col gap-1 border-b border-gray-300'>
-                    <span>CATEGORIES</span>
+                    {/* <span>CATEGORIES</span>
                     <span className='px-3 text-gray-400'>{'<'}  Mobiles & Accessories</span>
-                    <span className='px-6'>Mobiles</span>
+                    <span className='px-6'>Mobiles</span> */}
+
+                    <div>
+                        <select className="border border-gray-200 px-3 py-2 rounded text-[8px] md:[10px] lg:text-[12px] focus:outline-none focus:ring-1 focus:ring-blue-500">
+                            <option value="" disabled hidden selected>CATEGORIES</option>
+                            <option value="poco">POCO</option>
+                            <option value="realme">Realme</option>
+                        </select>
+                    </div>
                 </div>
-                <div className='lg:px-5 px-1 text-[8px] md:[10px] lg:text-[12px] border-b border-gray-300'>
+                <div className='lg:px-5 px-1 text-[8px] md:[10px] lg:text-[12px] border-b border-gray-300 mt-2'>
                     <div>
                         <span className='font-medium '>BRAND</span>
                     </div>
@@ -25,14 +33,14 @@ export default function FilterDiv() {
                     <span className='text-gray-500'>Clear all</span></div> */}
                     <div className='relative'>
                         <FontAwesomeIcon icon={faMagnifyingGlass} className='absolute left-0 top-1/2 -translate-y-1/2 text-gray-500' />
-                        <input type='text' placeholder='Search Brand' className='w-full border-b border-gray-300 pl-8 py-1' />
+                        <input type='text' placeholder='Search Brand' className='w-full border-b border-gray-300 pl-8 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500' />
                     </div>
 
 
                     <div className='flex flex-col gap-1 py-3'>
                         <div className='flex items-center gap-2'>
                             <input type='checkBox' id='realme' />
-                            <label htmlFor = 'realme'>realme</label>
+                            <label htmlFor='realme'>realme</label>
                         </div>
                         <div className='flex items-center gap-2'>
                             <input type='checkBox' id='oppo' />
@@ -55,7 +63,7 @@ export default function FilterDiv() {
 
                 </div>
 
-                <div className='lg:px-5 px-1 text-[8px] md:[10px] lg:text-[12px] border-b border-gray-300'>
+                <div className='lg:px-5 px-1 text-[8px] md:[10px] lg:text-[12px] border-b border-gray-300 mt-2'>
 
                     <div>
                         <span className='font-medium'>RAM</span>

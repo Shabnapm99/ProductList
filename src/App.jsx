@@ -7,12 +7,12 @@ import ProductListPage from './components/ProductListPage'
 
 function App() {
 
-  const [products,setProduct] = useState([
+  const [products, setProduct] = useState([
     {
-      id:1,
+      id: 1,
       title: 'POCO C75 5G (Aqua Bliss, 64 GB)',
       image: 'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/o/2/g/-original-imahbr2cz5apcwze.jpeg?q=70',
-      category:'categoryA',
+      category: 'POCO',
       price: '7,499',
       prevValue: '10,999',
       offerPercentage: '31',
@@ -27,10 +27,10 @@ function App() {
     },
 
     {
-      id:2,
+      id: 2,
       title: 'realme P3x 5G (Midnight Blue, 128 GB)',
       image: 'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/j/n/1/-original-imah9gtmya9qhqse.jpeg?q=70',
-      category:'categoryA',
+      category: 'Realme',
       price: '12,999',
       prevValue: '17,999',
       offerPercentage: '27',
@@ -44,10 +44,10 @@ function App() {
     },
 
     {
-      id:3,
+      id: 3,
       title: 'POCO M7 5G (Mint Green, 128 GB)',
       image: 'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/r/w/0/-original-imah9wydggh9mtxt.jpeg?q=70',
-      category:'categoryB',
+      category: 'POCO',
       price: '8,999',
       prevValue: '12,999',
       offerPercentage: '30',
@@ -69,7 +69,7 @@ function App() {
         <NavBar />
       </header>
       <main className='bg-gray-200 flex justify-between'>
-        <FilterDiv/>
+        <FilterDiv />
         <section className='my-2 basis-3/4'>
           <div className='flex flex-col bg-white '>
             <div className='flex gap-2 lg:gap-5 items-center m-2'>
@@ -79,18 +79,18 @@ function App() {
             {
               products.map((product) => {
                 return (
-                  <ProductListPage key={product.id} title={product.title} imageUrl={product.image} price={product.price} prevPrice={product.prevValue} offerPercentage={product.offerPercentage} offerPrice={product.offerPrice} rating={product.rating} ratingCount={product.ratingCount} reviewCount={product.reviewCount} descriptionList={product.description} category={product.category} />
-              //  <ProductListPage key={product.id} product={product} />
-               
+                  // <ProductListPage key={product.id} title={product.title} imageUrl={product.image} price={product.price} prevPrice={product.prevValue} offerPercentage={product.offerPercentage} offerPrice={product.offerPrice} rating={product.rating} ratingCount={product.ratingCount} reviewCount={product.reviewCount} descriptionList={product.description} category={product.category} />
+                  <ProductListPage key={product.id} product={product} />
+
                 )
               }
               )
             }
-                             
+
           </div>
         </section>
 
-      </main> 
+      </main>
     </div>
 
   )
