@@ -3,9 +3,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons'
 
-function NavBar() {
+function NavBar({ product, setProduct }) {
 
-    const [isSmallScreen, setIsSmallScreen] = useState(false)
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [copyOfProducts,setCopy] = useState(product);//make a copy of original array for backup
+
+    function fileteredProduct(e) {
+        let searchContent = e.target.value.toLowerCase();
+        let filteredProductList = copyOfProducts.filter((product) => {
+            // if (product.title.toLowerCase().includes(`${searchContent}`)) {
+            //     console.log('inside condition');
+            //     return product;
+            // }
+            return product.title.toLowerCase().includes(searchContent)
+        })
+        setProduct(filteredProductList);//UI is rendering based on to to this function only. anything changed by setProduct only rendered to UI
+        console.log(filteredProductList);
+
+    }
     return (
         <nav className='flex w-full justify-center'>
             <div className='basis-1/2 flex justify-center lg:justify-end gap-2 lg:gap-5'>
@@ -14,8 +29,10 @@ function NavBar() {
 
                 </div>
                 <div className='relative'>
-                    <input type='text' placeholder='Search for Products, Brands and more' className='text-[8px] md:[10px] lg:text-sm bg-white w-45 lg:w-80 py-1 px-2.5 lg:py-1.5 lg:px-4 rounded focus:outline-none' />
-                    <FontAwesomeIcon icon={faMagnifyingGlass} className='absolute right-1 top-1/2 -translate-y-1/4 lg:-translate-y-1/2 text-gray-500 text-[10px] lg:text-base' />
+                    <input type='text' placeholder='Search for Products, Brands and more' className='text-[8px] md:[10px] lg:text-sm bg-white w-45 lg:w-80 py-1 px-2.5 lg:py-1.5 lg:px-4 rounded focus:outline-none'
+                        onChange={fileteredProduct} />
+                    <FontAwesomeIcon icon={faMagnifyingGlass} className='absolute right-1 top-1/2 -translate-y-1/4 lg:-translate-y-1/2 text-gray-500 text-[10px] lg:text-base'
+                        onClick={fileteredProduct} />
                 </div>
 
             </div>

@@ -17,8 +17,8 @@ export default function FilterDiv() {
                     <span className='px-6'>Mobiles</span> */}
 
                     <div>
-                        <select className="border border-gray-200 px-3 py-2 rounded text-[8px] md:[10px] lg:text-[12px] focus:outline-none focus:ring-1 focus:ring-blue-500">
-                            <option value="" disabled hidden selected>CATEGORIES</option>
+                        <select className="border border-gray-200 px-3 py-2 rounded text-[8px] md:[10px] lg:text-[12px] focus:outline-none focus:ring-1 focus:ring-blue-500 "  defaultValue="selected">
+                            <option value="selected"  hidden >CATEGORIES</option>
                             <option value="poco">POCO</option>
                             <option value="realme">Realme</option>
                         </select>
