@@ -63,13 +63,15 @@ function App() {
 
   )
 
+  const [copyOfProducts,setCopy] = useState(products);//make a copy of original array for backup
+
   return (
     <div>
       <header className='w-full h-16 bg-blue-500 flex items-center sticky top-0 left-0 z-50'>
-        <NavBar product={products} setProduct={setProduct} />
+        <NavBar product={products} setProduct={setProduct} copyOfList={copyOfProducts}/>
       </header>
       <main className='bg-gray-200 flex justify-between'>
-        <FilterDiv />
+        <FilterDiv product={products} setProduct={setProduct} copyOfList={copyOfProducts}/>
         <section className='my-2 basis-3/4'>
           <div className='flex flex-col bg-white '>
             <div className='flex gap-2 lg:gap-5 items-center m-2'>

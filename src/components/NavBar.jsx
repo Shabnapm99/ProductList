@@ -3,14 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons'
 
-function NavBar({ product, setProduct }) {
+function NavBar({ product, setProduct, copyOfList}) {
 
     const [isSmallScreen, setIsSmallScreen] = useState(false);
-    const [copyOfProducts,setCopy] = useState(product);//make a copy of original array for backup
+    
 
     function fileteredProduct(e) {
         let searchContent = e.target.value.toLowerCase();
-        let filteredProductList = copyOfProducts.filter((product) => {
+        let filteredProductList = copyOfList.filter((product) => {
             // if (product.title.toLowerCase().includes(`${searchContent}`)) {
             //     console.log('inside condition');
             //     return product;
