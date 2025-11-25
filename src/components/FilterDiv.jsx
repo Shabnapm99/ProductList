@@ -23,6 +23,18 @@ export default function FilterDiv({ product, setProduct, copyOfList }) {
       
 
     }
+
+
+    // Sort function
+
+    function sortPrice(event){
+        let criteria = event.target.value;
+        console.log('Sort according to price');
+    }
+
+    function sortRating(event){
+        console.log('Sort according to rating');
+    }
     return (
 
         // Filter and sort section
@@ -61,21 +73,14 @@ export default function FilterDiv({ product, setProduct, copyOfList }) {
 
                     <div className='flex flex-col gap-1 py-3'>
                         <div className='flex items-center gap-2'>
-                            <input type='radio' id='realme' name='sort' />
-                            <label htmlFor='realme'>Below ₹2000</label>
+                            <input type='radio' id='priceSort' name='sort' onChange={sortPrice} />
+                            <label htmlFor='priceSort'>Price</label>
                         </div>
                         <div className='flex items-center gap-2'>
-                            <input type='radio' id='oppo' name='sort' />
-                            <label htmlFor='oppo'>₹10,000 & above</label>
+                            <input type='radio' id='ratingSort' name='sort' onChange={sortRating}/>
+                            <label htmlFor='ratingSort'>Ratinge</label>
                         </div>
-                        <div className='flex items-center gap-2'>
-                            <input type='radio' id='vivo' name='sort' />
-                            <label htmlFor='vivo'>Below ₹10,000</label>
-                        </div>
-                        <div className='flex items-center gap-2'>
-                            <input type='radio' id='samsung' name='sort' />
-                            <label htmlFor='samsung'>Below ₹8000</label>
-                        </div>
+                        
                     </div>
 
                 </div>

@@ -57,7 +57,7 @@ function ProductListPage({product}) {
                     <p className="text-green-600 text-[8px] md:[10px] lg:text-[12px] font-medium">Super Deals</p>
                     <p className="text-[8px] md:[10px] lg:text-[13px]">Upto <span className="font-bold">₹{product.offerPrice}</span> off on Exchange</p>
                 </div>
-                <button className='rounded bg-amber-400 h-6 md:h-10 text-white font-semibold flex justify-center items-center gap-3 px-6 mt-2 w-auto text-[9px] md:text-md mx-auto'
+                <button className='rounded bg-amber-400 h-6 md:h-10 text-white font-semibold flex justify-center items-center gap-3 px-6 mt-2 w-auto text-[9px] md:text-md mx-auto cursor-pointer'
                 onClick={addToCart}>
 
                     <FontAwesomeIcon icon={faCartShopping} />
