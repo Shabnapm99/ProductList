@@ -5,7 +5,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 export default function FilterDiv({ product, setProduct, copyOfList }) {
 
     function sortedList(event) {
-        console.log(event.target.value);
+        console.log(event.target.value);//event.target.value gives the value we have given for value attribute of the selected option ie value="poco" not  POCO
         if (event.target.value.toLowerCase() !== 'all') {
             let filteredProduct = copyOfList.filter((product) => {
                 if (event.target.value.toLowerCase() === product.category.toLowerCase()) {
@@ -14,26 +14,38 @@ export default function FilterDiv({ product, setProduct, copyOfList }) {
             }
             )
             console.log(filteredProduct)
-        setProduct(filteredProduct);
+            setProduct(filteredProduct);
         }
-   else{
-    setProduct(copyOfList)//since now the Product is set to filteredProduct so we should use the full list of products. filter dont change the original array 
-    console.log(copyOfList);
-   }
-      
+        else {
+            setProduct(copyOfList)//since now the Product is set to filteredProduct so we should use the full list of products. filter dont change the original array 
+            console.log(copyOfList);
+        }
+
 
     }
 
 
     // Sort function
 
-    function sortPrice(event){
-        let criteria = event.target.value;
+    function sortPrice() {
         console.log('Sort according to price');
+
+        const sortedList = product.sort((a, b) => {
+            return Number(a.price.replace(/,/g, "")) - Number(b.price.replace(/,/g, ""))
+        });
+        setProduct(sortedList)
     }
 
-    function sortRating(event){
+    function sortRating(event) {
         console.log('Sort according to rating');
+
+        const sortedList = copyOfList.sort((a, b) => {
+           
+            return b.rating - a.rating
+        })
+        setProduct(sortedList);
+
+
     }
     return (
 
@@ -77,10 +89,10 @@ export default function FilterDiv({ product, setProduct, copyOfList }) {
                             <label htmlFor='priceSort'>Price</label>
                         </div>
                         <div className='flex items-center gap-2'>
-                            <input type='radio' id='ratingSort' name='sort' onChange={sortRating}/>
-                            <label htmlFor='ratingSort'>Ratinge</label>
+                            <input type='radio' id='ratingSort' name='sort' onChange={sortRating} />
+                            <label htmlFor='ratingSort'>Rating</label>
                         </div>
-                        
+
                     </div>
 
                 </div>
